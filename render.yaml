@@ -50,6 +50,9 @@ services:
     name: cvt-redis
     plan: free
     region: oregon
+    ipAllowList:
+      - cidr: 0.0.0.0/0
+        description: Allow all
 
 databases:
   - name: cvt-db
