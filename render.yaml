@@ -6,6 +6,7 @@ services:
     dockerContext: ./backend
     dockerFilePath: Dockerfile
     plan: free
+    region: oregon
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -30,13 +31,14 @@ services:
         sync: false
     healthCheckPath: /health
 
-  # Frontend (Static site for better performance)
+  # Frontend (Vite)
   - type: web
     name: frontend
     runtime: docker
     dockerContext: ./frontend
     dockerFilePath: Dockerfile
     plan: free
+    region: oregon
     envVars:
       - key: VITE_API_BASE_URL
         fromService:
@@ -46,11 +48,13 @@ services:
       - key: PORT
         value: 3000
 
-  # Redis (Modern KeyValue syntax)
+  # Redis
   - type: keyvalue
     name: cvt-redis
     plan: free
+    region: oregon
 
 databases:
   - name: cvt-db
     plan: free
+    region: oregon
