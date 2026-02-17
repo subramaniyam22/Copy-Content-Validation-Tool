@@ -6,7 +6,6 @@ services:
     dockerContext: ./backend
     dockerFilePath: Dockerfile
     plan: free
-    region: oregon
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -18,7 +17,7 @@ services:
           property: connectionString
       - key: REDIS_URL
         fromService:
-          type: redis
+          type: keyvalue
           name: cvt-redis
           property: connectionString
       - key: OPENAI_API_KEY
@@ -38,20 +37,20 @@ services:
     dockerContext: ./frontend
     dockerFilePath: Dockerfile
     plan: free
-    region: oregon
     envVars:
       - key: VITE_API_BASE_URL
         fromService:
           type: web
           name: backend
-          property: url
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: PORT
+        value: 3000
+
+  # Redis (Modern KeyValue syntax)
+  - type: keyvalue
+    name: cvt-redis
+    plan: free
 
 databases:
   - name: cvt-db
     plan: free
-    region: oregon
-
-redis:
-  - name: cvt-redis
-    plan: free
-    region: oregon
