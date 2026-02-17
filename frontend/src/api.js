@@ -1,5 +1,5 @@
 /* API client module */
-const BASE = '';
+const BASE = import.meta.env.VITE_API_BASE_URL || '';
 
 async function request(path, opts = {}) {
     const res = await fetch(`${BASE}${path}`, {

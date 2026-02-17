@@ -1,0 +1,71 @@
+services:
+  # Backend API
+  - type: web
+    name: backend
+    runtime: docker
+    dockerContext: ./backend
+    dockerFilePath: Dockerfile
+    plan: starter
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cvt-db
+          property: connectionString
+      - key: DATABASE_URL_SYNC
+        fromDatabase:
+          name: cvt-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: cvt-redis
+          property: connectionString
+      - key: PORT
+        value: 8000
+      # Add Azure OpenAI creds as environment variables in Render Dashboard or add them here if they should be in Blueprint
+    healthCheckPath: /health
+
+  # Background Worker
+  - type: worker
+    name: worker
+    runtime: docker
+    dockerContext: ./backend
+    dockerFilePath: Dockerfile
+    dockerCommand: rq worker validation --url $REDIS_URL
+    plan: starter
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cvt-db
+          property: connectionString
+      - key: DATABASE_URL_SYNC
+        fromDatabase:
+          name: cvt-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: cvt-redis
+          property: connectionString
+
+  # Frontend (Static site for better performance)
+  - type: web
+    name: frontend
+    runtime: docker
+    dockerContext: ./frontend
+    dockerFilePath: Dockerfile
+    plan: starter
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: backend
+          property: host
+
+databases:
+  - name: cvt-db
+    plan: free
+
+redis:
+  - name: cvt-redis
+    plan: free
