@@ -1,0 +1,21 @@
+# General
+.DS_Store
+*.log
+
+# Backend
+backend/.venv/
+backend/__pycache__/
+backend/*.pyc
+backend/.pytest_cache/
+backend/storage/
+backend/temp/
+backend/.env
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+
+# Docker
+.docker/

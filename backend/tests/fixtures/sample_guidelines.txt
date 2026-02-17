@@ -1,0 +1,27 @@
+Brand Voice Guidelines — Test Fixture
+
+Section 1: Voice & Tone
+- Always use active voice, never passive voice.
+- Keep sentences under 25 words where possible.
+- Write at a grade 8 reading level.
+- Avoid jargon unless writing for a technical audience.
+
+Section 2: Banned Phrases
+- Do not use "click here" — use descriptive link text instead.
+- Do not use "synergy" or "leverage" in marketing copy.
+- Avoid superlatives like "best", "greatest", "number one" unless backed by data.
+
+Section 3: Formatting
+- Use sentence case for headings (not Title Case or ALL CAPS).
+- Limit paragraphs to 3-4 sentences.
+- Use bullet points for lists of 3+ items.
+
+Section 4: Accessibility
+- All images must have alt text.
+- Link text must be descriptive (no "click here", "read more").
+- Color should not be the only way to convey information.
+
+Section 5: Brand-Specific
+- Always refer to the company as "Example Corp" (not "the company" or "we").
+- Product names should be capitalized: ExampleProduct, ExampleService.
+- Customer testimonials must include name and role.

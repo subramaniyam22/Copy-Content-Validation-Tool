@@ -1,0 +1,50 @@
+# Core
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+python-multipart
+python-dotenv
+
+# Database
+sqlalchemy[asyncio]
+asyncpg
+psycopg2-binary
+alembic
+
+# Redis + Job Queue
+redis
+rq
+
+# Web scraping
+playwright
+
+# AI / Embeddings
+openai
+numpy
+
+# Document parsing
+pdfplumber
+python-docx
+openpyxl
+
+# Text analysis
+textstat
+
+# Export
+xlsxwriter
+
+# HTTP
+httpx
+aiohttp
+
+# HTML
+html2text
+beautifulsoup4
+lxml
+
+# Utilities
+sse-starlette
+
+# Testing
+pytest
