@@ -1,5 +1,4 @@
 services:
-  # Backend API + Worker (Consolidated for Free Tier)
   - type: web
     name: backend
     runtime: docker
@@ -31,7 +30,6 @@ services:
         sync: false
     healthCheckPath: /health
 
-  # Frontend (Vite)
   - type: web
     name: frontend
     runtime: docker
@@ -48,7 +46,6 @@ services:
       - key: PORT
         value: 3000
 
-  # Redis
   - type: keyvalue
     name: cvt-redis
     plan: free
