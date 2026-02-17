@@ -22,7 +22,14 @@ services:
           property: connectionString
       - key: PORT
         value: 8000
-      # Add Azure OpenAI creds as environment variables in Render Dashboard or add them here if they should be in Blueprint
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: AZURE_ENDPOINT
+        sync: false
+      - key: AZURE_OPENAI_DEPLOYMENT
+        sync: false
+      - key: AZURE_OPENAI_EMBED_DEPLOYMENT
+        sync: false
     healthCheckPath: /health
 
   # Background Worker
