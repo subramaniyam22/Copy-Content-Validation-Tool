@@ -54,6 +54,14 @@ services:
           type: redis
           name: cvt-redis
           property: connectionString
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: AZURE_ENDPOINT
+        sync: false
+      - key: AZURE_OPENAI_DEPLOYMENT
+        sync: false
+      - key: AZURE_OPENAI_EMBED_DEPLOYMENT
+        sync: false
 
   # Frontend (Static site for better performance)
   - type: web
