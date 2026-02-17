@@ -10,9 +10,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
+# Install bash (required for start.sh)
+RUN apt-get update && apt-get install -y bash && rm -rf /var/lib/apt/lists/*
+
 # Create storage directories
 RUN mkdir -p /app/storage/guidelines /app/storage/exports
 
+# Make start script executable
+RUN chmod +x /app/scripts/start.sh
+
 EXPOSE 8000
 
-CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
+CMD ["/app/scripts/start.sh"]
