@@ -75,7 +75,9 @@ services:
         fromService:
           type: web
           name: backend
-          property: host
+          property: url
+      - key: PORT
+        value: 3000
 
 databases:
   - name: cvt-db

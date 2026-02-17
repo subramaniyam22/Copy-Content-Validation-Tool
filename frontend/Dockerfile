@@ -13,10 +13,10 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Expose port 3000
+# Expose port (Render will override this, but good for documentation)
 EXPOSE 3000
 
 # Start the application
-# We use CI=true to avoid treating warnings as errors in container
-ENV CI=true
-CMD ["npm", "start"]
+# Use the PORT environment variable provided by Render
+ENV PORT=3000
+CMD npm start -- --port ${PORT:-3000}
