@@ -3,7 +3,7 @@ services:
     name: backend
     runtime: docker
     dockerContext: ./backend
-    dockerFilePath: Dockerfile
+    dockerfilePath: Dockerfile
     plan: free
     region: oregon
     envVars:
@@ -34,7 +34,7 @@ services:
     name: frontend
     runtime: docker
     dockerContext: ./frontend
-    dockerFilePath: Dockerfile
+    dockerfilePath: Dockerfile
     plan: free
     region: oregon
     envVars:
