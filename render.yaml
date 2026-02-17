@@ -28,6 +28,11 @@ services:
         sync: false
       - key: AZURE_OPENAI_EMBED_DEPLOYMENT
         sync: false
+      - key: CORS_ORIGINS
+        fromService:
+          type: web
+          name: frontend
+          envVarKey: RENDER_EXTERNAL_URL
     healthCheckPath: /health
 
   - type: web
